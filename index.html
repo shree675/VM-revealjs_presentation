@@ -1,40 +1,978 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-transition="zoom"
+          data-background-gradient="radial-gradient(#283b95, #17b2c3)"
+        >
+          <h1 style="color: white; margin: 0">Virtual Machine</h1>
+          <div
+            data-id="hr"
+            style="height: 20px; margin: 0; background-color: salmon"
+          ></div>
+          <h3 style="color: white; text-align: center">
+            Fundamentals
+            <div
+              style="
+                height: 5px;
+                width: 50%;
+                margin: 0;
+                margin-left: 25%;
+                background-color: rgb(114, 250, 146);
+              "
+            ></div>
+          </h3>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+          <img class="r-stretch" data-src="assets/vm.png" />
+          <p>Shreetesh M</p>
+        </section>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+        <section
+          class="r-stretch"
+          data-auto-animate
+          style="padding: 0; margin: 0; width: 100%"
+        >
+          <h3 data-id="h3">
+            Major Types of Virtual Machines
+            <div
+              data-id="hr"
+              style="height: 0px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+        </section>
+
+        <section class="r-stretch" data-auto-animate>
+          <h3 data-id="h3">
+            Major Types of Virtual Machines
+            <div
+              data-id="hr"
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div class="custom-box">
+            <div class="custom-box-element">System VM</div>
+            <div id="highlight-0" class="custom-box-element">Language VM</div>
+          </div>
+          <div class="fragment custom blur custom-box" style="font-size: 25px">
+            <div class="custom-box-element">
+              <ul>
+                <li>Also known as Hardware VM</li>
+              </ul>
+            </div>
+            <div class="custom-box-element custom-box-element-right">
+              <ul>
+                <li>Also known as Process VM</li>
+              </ul>
+            </div>
+          </div>
+          <div class="fragment custom blur custom-box" style="font-size: 25px">
+            <div class="custom-box-element">
+              <ul>
+                <li>
+                  Simulates an entire computer system to behave like another
+                  system
+                </li>
+              </ul>
+            </div>
+            <div class="custom-box-element custom-box-element-right">
+              <ul>
+                <li>Simulates only a runtime environment</li>
+              </ul>
+            </div>
+          </div>
+          <div class="fragment custom blur custom-box" style="font-size: 25px">
+            <div class="custom-box-element">
+              <ul>
+                <li>For example, running Mint OS inside a Windows machine</li>
+              </ul>
+            </div>
+            <div class="custom-box-element custom-box-element-right">
+              <ul>
+                <li>
+                  For example, converting Java bytecode to machine code in the
+                  JRE
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="fragment custom blur custom-box" style="font-size: 25px">
+            <div class="custom-box-element">
+              <ul>
+                <li>
+                  Examples: Oracle VirtualBox, VMWare
+                  <img src="assets/virtualbox.jpg" width="50%" />
+                </li>
+              </ul>
+            </div>
+            <div class="custom-box-element custom-box-element-right">
+              <ul>
+                <li>
+                  Examples: JVM, Dalvik, CLR
+                  <img src="assets/java.png" width="50%" />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="types" class="fragment custom blur"></div>
+        </section>
+
+        <section data-auto-animate>
+          <h3 data-id="h3">
+            So, What Should a Language VM Do?
+            <div style="height: 0px; margin: 0; background-color: salmon"></div>
+          </h3>
+        </section>
+
+        <section data-auto-animate>
+          <div>
+            <h3>
+              So, What Should a Language VM Do?
+              <div
+                style="height: 10px; margin: 0; background-color: salmon"
+              ></div>
+            </h3>
+            <div>
+              <img data-src="assets/conversions.png" />
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <div>
+            <h3>
+              So, What Should a Language VM Do?
+              <div
+                style="height: 10px; margin: 0; background-color: salmon"
+              ></div>
+            </h3>
+            <div>
+              <img data-src="assets/conversions.png" />
+            </div>
+          </div>
+          <br />
+          <div style="float: left; text-align: left">
+            <h5 style="float: left">
+              Other Execution Models:
+              <div
+                style="
+                  height: 5px;
+                  margin: 0;
+                  background-color: rgb(114, 250, 146);
+                "
+              ></div>
+            </h5>
+            <ol style="font-size: 25px">
+              <li>
+                <b>Interpreted Execution:</b> VM directly executes
+                <code>.vmc</code> in its environment without a specific
+                translation. For example, Dalvik VM.
+              </li>
+              <li>
+                <b>Tiered Execution:</b> VM uses a mix of translation and direct
+                interpetation of <code>.vmc</code>. For example, JVM.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            But What is the use of a VM?
+            <div
+              style="
+                height: 10px;
+                width: 0;
+                margin: 0;
+                background-color: salmon;
+              "
+            ></div>
+          </h3>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            But What is the use of a VM?
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+            <img src="assets/use.png" class="r-stretch" />
+          </h3>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            But What is the use of a VM?
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div class="custom-box">
+            <div class="custom-box-element">
+              <img src="assets/use.png" style="margin: 15px" />
+            </div>
+            <div class="custom-box-element" style="padding: 15px">
+              <ul style="font-size: 25px; line-height: 36px">
+                <li>
+                  9 monolithic compilers vs
+                  <span style="color: green">3 frontend and 3 backend</span>.
+                </li>
+                <li>
+                  Increased portability across multiple hardware due to a common
+                  VM code representation.
+                </li>
+                <li>Separation of concerns and increased modularity.</li>
+                <li>Reduced costs of development overall.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            Architectures of VM
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <br />
+          <div style="font-size: 25px; float: left">
+            <ol style="line-height: 36px">
+              <li><b>Stack Machine Model</b> - JVM, CLR</li>
+              <li><b>Register Machine Model</b> - Dalvik, Lua VM</li>
+              <li><b>SSA Machine Model</b> - LLVM</li>
+              <li><b>Accumulator Machine Model</b></li>
+              <li><b>Register-Memory Machine Model</b></li>
+              <li>...</li>
+            </ol>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            The Stack Model
+            <div
+              style="
+                height: 10px;
+                width: 0;
+                margin: 0;
+                background-color: salmon;
+              "
+            ></div>
+          </h3>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            The Stack Model
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div>
+            <h5 style="float: left">
+              Designing the VM code:
+              <div
+                style="
+                  height: 5px;
+                  margin: 0;
+                  background-color: rgb(114, 250, 146);
+                "
+              ></div>
+            </h5>
+          </div>
+          <br />
+          <br />
+          <div class="custom-box">
+            <div
+              class="custom-box-element"
+              style="font-size: 25px; text-align: center"
+            >
+              <div data-id="math">
+                \[\begin{aligned} a &amp; = (2 - x) \times (y + 5) \\
+                \end{aligned} \]
+              </div>
+              <div>is translated to →</div>
+            </div>
+            <div
+              class="custom-box-element"
+              style="font-size: 25px; text-align: center"
+            >
+              <div
+                data-id="pseudocode"
+                style="
+                  outline: 1px solid black;
+                  padding-left: 40px;
+                  padding-right: 40px;
+                  width: fit-content;
+                  margin-left: 38%;
+                "
+              >
+                <code>
+                  <div>push 2</div>
+                  <div>push x</div>
+                  <div>sub</div>
+                  <div>push y</div>
+                  <div>push 5</div>
+                  <div>add</div>
+                  <div>mult</div>
+                  <div>pop a</div>
+                </code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            The Stack Model
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div>
+            <h5 style="float: left">
+              Designing the VM code:
+              <div
+                style="
+                  height: 5px;
+                  margin: 0;
+                  background-color: rgb(114, 250, 146);
+                "
+              ></div>
+            </h5>
+          </div>
+          <br />
+          <br />
+          <div class="custom-box">
+            <div
+              class="custom-box-element"
+              style="font-size: 25px; text-align: center"
+            >
+              <div data-id="math">
+                \[\begin{aligned} a &amp; = (2 - x) \times (y + 5) \\
+                \end{aligned} \]
+              </div>
+              <div
+                data-id="pseudocode"
+                style="
+                  outline: 1px solid black;
+                  padding-left: 40px;
+                  padding-right: 40px;
+                  width: fit-content;
+                  margin-left: 34%;
+                "
+              >
+                <code>
+                  <div>
+                    <span
+                      data-fragment-index="0"
+                      class="fragment highlight-current-blue"
+                      >push 2</span
+                    >
+                  </div>
+                  <div>
+                    <span
+                      data-fragment-index="1"
+                      class="fragment highlight-current-blue"
+                      >push x</span
+                    >
+                  </div>
+                  <div>sub</div>
+                  <div>push y</div>
+                  <div>push 5</div>
+                  <div>add</div>
+                  <div>mult</div>
+                  <div>pop a</div>
+                </code>
+              </div>
+            </div>
+            <div
+              class="custom-box-element"
+              style="font-size: 25px; text-align: center"
+            >
+              <div id="stack">
+                <div id="headspace"></div>
+                <div id="stack-element"></div>
+                <div id="stack-element"></div>
+                <div id="stack-element">
+                  <p data-fragment-index="1" class="fragment fade-down">x</p>
+                </div>
+                <div id="stack-element">
+                  <p data-fragment-index="0" class="fragment fade-down">2</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            The Stack Model
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div>
+            <h5 style="float: left">
+              Designing the VM code:
+              <div
+                style="
+                  height: 5px;
+                  margin: 0;
+                  background-color: rgb(114, 250, 146);
+                "
+              ></div>
+            </h5>
+          </div>
+          <br />
+          <br />
+          <div class="custom-box">
+            <div
+              class="custom-box-element"
+              style="font-size: 25px; text-align: center"
+            >
+              <div data-id="math">
+                \[\begin{aligned} a &amp; = (2 - x) \times (y + 5) \\
+                \end{aligned} \]
+              </div>
+              <div
+                data-id="pseudocode"
+                style="
+                  outline: 1px solid black;
+                  padding-left: 40px;
+                  padding-right: 40px;
+                  width: fit-content;
+                  margin-left: 34%;
+                "
+              >
+                <code>
+                  <div>push 2</div>
+                  <div>push x</div>
+                  <div>
+                    <span
+                      data-fragment-index="0"
+                      class="fragment highlight-current-blue"
+                      >sub</span
+                    >
+                  </div>
+                  <div>
+                    <span
+                      data-fragment-index="1"
+                      class="fragment highlight-current-blue"
+                      >push y</span
+                    >
+                  </div>
+                  <div>
+                    <span
+                      data-fragment-index="2"
+                      class="fragment highlight-current-blue"
+                      >push 5</span
+                    >
+                  </div>
+                  <div>add</div>
+                  <div>mult</div>
+                  <div>pop a</div>
+                </code>
+              </div>
+            </div>
+            <div
+              class="custom-box-element"
+              style="font-size: 25px; text-align: center"
+            >
+              <div id="stack">
+                <div id="headspace"></div>
+                <div id="stack-element"></div>
+                <div id="stack-element">
+                  <p data-fragment-index="2" class="fragment fade-down">5</p>
+                </div>
+                <div id="stack-element">
+                  <p data-fragment-index="1" class="fragment fade-down">y</p>
+                </div>
+                <div id="stack-element">2 - x</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            The Stack Model
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div>
+            <h5 style="float: left">
+              Designing the VM code:
+              <div
+                style="
+                  height: 5px;
+                  margin: 0;
+                  background-color: rgb(114, 250, 146);
+                "
+              ></div>
+            </h5>
+          </div>
+          <br />
+          <br />
+          <div class="custom-box">
+            <div
+              class="custom-box-element"
+              style="font-size: 25px; text-align: center"
+            >
+              <div data-id="math">
+                \[\begin{aligned} a &amp; = (2 - x) \times (y + 5) \\
+                \end{aligned} \]
+              </div>
+              <div
+                data-id="pseudocode"
+                style="
+                  outline: 1px solid black;
+                  padding-left: 40px;
+                  padding-right: 40px;
+                  width: fit-content;
+                  margin-left: 34%;
+                "
+              >
+                <code>
+                  <div>push 2</div>
+                  <div>push x</div>
+                  <div>sub</div>
+                  <div>push y</div>
+                  <div>push 5</div>
+                  <div>
+                    <span
+                      data-fragment-index="0"
+                      class="fragment highlight-current-blue"
+                      >add</span
+                    >
+                  </div>
+                  <div>mult</div>
+                  <div>pop a</div>
+                </code>
+              </div>
+            </div>
+            <div
+              class="custom-box-element"
+              style="font-size: 25px; text-align: center"
+            >
+              <div id="stack">
+                <div id="headspace"></div>
+                <div id="stack-element"></div>
+                <div id="stack-element"></div>
+                <div id="stack-element">y + 5</div>
+                <div id="stack-element">2 - x</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            The Stack Model
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div>
+            <h5 style="float: left">
+              Designing the VM code:
+              <div
+                style="
+                  height: 5px;
+                  margin: 0;
+                  background-color: rgb(114, 250, 146);
+                "
+              ></div>
+            </h5>
+          </div>
+          <br />
+          <br />
+          <div class="custom-box">
+            <div
+              class="custom-box-element"
+              style="font-size: 25px; text-align: center"
+            >
+              <div data-id="math">
+                \[\begin{aligned} a &amp; = (2 - x) \times (y + 5) \\
+                \end{aligned} \]
+              </div>
+              <div
+                data-id="pseudocode"
+                style="
+                  outline: 1px solid black;
+                  padding-left: 40px;
+                  padding-right: 40px;
+                  width: fit-content;
+                  margin-left: 34%;
+                "
+              >
+                <code>
+                  <div>push 2</div>
+                  <div>push x</div>
+                  <div>sub</div>
+                  <div>push y</div>
+                  <div>push 5</div>
+                  <div>add</div>
+                  <div>
+                    <span
+                      data-fragment-index="0"
+                      class="fragment highlight-current-blue"
+                      >mult</span
+                    >
+                  </div>
+                  <div>pop a</div>
+                </code>
+              </div>
+            </div>
+            <div
+              class="custom-box-element"
+              style="font-size: 25px; text-align: center"
+            >
+              <div id="stack">
+                <div id="headspace"></div>
+                <div id="stack-element"></div>
+                <div id="stack-element"></div>
+                <div id="stack-element"></div>
+                <div id="stack-element">(2 - x) * (y + 5)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            The Stack Model
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div>
+            <h5 style="float: left">
+              Virtual Memory Segments:
+              <div
+                style="
+                  height: 5px;
+                  margin: 0;
+                  background-color: rgb(114, 250, 146);
+                "
+              ></div>
+            </h5>
+            <div style="height: 80px"></div>
+            <div class="custom-box">
+              <img
+                class="custom-box-element"
+                data-src="assets/segments.png"
+                height="490px"
+              />
+              <img
+                class="custom-box-element"
+                data-src="assets/pointers.png"
+                height="290px"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            The Stack Model
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div>
+            <h5 style="float: left">
+              Virtual Memory Segments:
+              <div
+                style="
+                  height: 5px;
+                  margin: 0;
+                  background-color: rgb(114, 250, 146);
+                "
+              ></div>
+            </h5>
+            <div style="height: 80px"></div>
+            <div class="custom-box">
+              <img
+                class="custom-box-element"
+                data-src="assets/segments.png"
+                height="490px"
+              />
+              <img
+                class="custom-box-element"
+                data-src="assets/ram.png"
+                height="490px"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            The Stack Model
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div>
+            <h5 style="float: left">
+              Example:
+              <div
+                style="
+                  height: 5px;
+                  margin: 0;
+                  background-color: rgb(114, 250, 146);
+                "
+              ></div>
+            </h5>
+            <div style="height: 80px"></div>
+            <div class="custom-box">
+              <img
+                class="custom-box-element"
+                data-src="assets/ram.png"
+                height="490px"
+              />
+              <div class="custom-box-element">
+                <div class="custom-box">
+                  <div class="custom-box-element" style="font-size: 32px">
+                    <pre><code class="hljs as" data-line-numbers data-trim>
+                      function main
+
+                      push argument 0
+                      push constant 42
+
+                      add
+
+                      pop local 1
+                    </code></pre>
+                    <span style="font-size: 25px; margin-left: 25px"
+                      >.vmc to .asm →</span
+                    >
+                  </div>
+                  <div class="custom-box-element" style="font-size: 32px">
+                    <pre><code class="hljs mips" data-line-numbers="1|2-6|8-10|12-18|20-25|1-25" data-trim>
+                    main:
+                    li x6, 8200   # x6=8200
+                    lw x6, 0(x6)  # x6=8736
+                    lw x6, 0(x6)  # x6=65
+                    sw x6, 0(x2)
+                    addi x2, x2, 4
+
+                    li x7, 42
+                    sw x7, 0(x2)
+                    addi x2, x2, 4
+
+                    addi x2, x2, -4
+                    lw x6, 0(x2)  # x6=42
+                    addi x2, x2, -4
+                    lw x7, 0(x2)  # x7=65
+                    add x6, x6, x7
+                    sw x6, 0(x2)
+                    addi x2, x2, 4
+
+                    addi x2, x2, -4
+                    lw x6, 0(x2)  # x6=107
+                    li x7, 8196
+                    lw x7, 0(x7)  # x7=8224
+                    addi x7, x7, 4
+                    sw x6, 0(x7)
+                  </code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            Project Tips and Experience
+            <div style="height: 0; margin: 0; background-color: salmon"></div>
+          </h3>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            Project Tips and Experience
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+          </h3>
+          <div class="custom-box">
+            <div class="custom-box-element-left">
+              <ul style="font-size: 20px; line-height: 1.5em">
+                <li>
+                  Do enough research before finalizing idea and implementation.
+                </li>
+                <li>
+                  Establish clear communication guidelines between different
+                  teams as early as possible. For VM:
+                  <ul>
+                    <li>Compiler team for VM machine model and language</li>
+                    <li>
+                      Assembler team for assembly language and additional custom
+                      operators, if any
+                    </li>
+                    <li>
+                      Processor team for starting location of memory for VM
+                      segments, list of all operators supported, floating point
+                      support, size of memory, byte addressable/word
+                      addressable, etc.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Maintain a documentation each by compiler, VM, assembly team
+                  and processor team. Communicate regularly.
+                </li>
+                <li>
+                  Complete your individual team's work in advance. Integrating
+                  into a single pipeline <b>will</b> reveal inconsistencies and
+                  errors.
+                </li>
+                <li>Optimize translated code in compiler and VM stages.</li>
+                <li>
+                  Try some new features - OS scheduling, support for objects and
+                  heap.
+                </li>
+                <li>
+                  Enjoy the process. There is a lot to learn - implementing all
+                  the major CS concepts together.
+                </li>
+              </ul>
+            </div>
+            <div class="custom-box-element-right">
+              <img class="custom-box-element" data-src="assets/ram.png" />
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>
+            Project Tips and Experience
+            <div
+              style="height: 10px; margin: 0; background-color: salmon"
+            ></div>
+            <h5 style="float: left">
+              Resources:
+              <div
+                style="
+                  height: 5px;
+                  margin: 0;
+                  background-color: rgb(114, 250, 146);
+                "
+              ></div>
+            </h5>
+          </h3>
+          <div style="font-size: 25px">
+            <ol>
+              <li>
+                The Elements of Computing Systems: Building a Modern Computer
+                from First Principles by Noam Nisan, Shimon Schocken.
+              </li>
+              <li>
+                <a href="https://www.youtube.com/@MakkuZjAileron/playlists"
+                  >Building a modern computer from first principles</a
+                >
+                playlists.
+              </li>
+              <hr />
+              <li>
+                <a href="https://techvidvan.com/tutorials/java-virtual-machine/"
+                  >JVM</a
+                >
+                and the
+                <a
+                  href="https://docs.oracle.com/javacomponents/jrockit-hotspot/migration-guide/comp-opt.htm#JRHMG117"
+                  >tiered compilation</a
+                >
+                process.
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=OjaAToVkoTw"
+                  >How to build a VM (Interpreted execution model)</a
+                >
+                by T Parr.
+              </li>
+              <li>
+                <a href="https://github.com/TheThirdOne/rars">RARS simulator</a>
+                for RISV-V.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section
+          data-transition="zoom"
+          data-background-gradient="linear-gradient(#283b95, #17b2c3)"
+        >
+          <h1 style="color: white; margin: 0">Thank You</h1>
+          <div
+            data-id="hr"
+            style="
+              height: 20px;
+              margin: 0;
+              margin-bottom: 20px;
+              background-color: salmon;
+            "
+          ></div>
+          <h3 style="color: rgb(114, 250, 146); text-align: center">
+            And All the Best!
+          </h3>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        backgroundTransition: "slide",
+        pdfSeparateFragments: true,
+        center: true,
+        width: 1020,
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+      Reveal.on("fragmentshown", (event) => {
+        if (
+          event.fragment.getAttribute("data-fragment-index") === "4" &&
+          event.fragment.getAttribute("id") === "types"
+        ) {
+          document.getElementById("highlight-0").style.color = "blue";
+          document.getElementById("highlight-0").style.fontWeight = "bold";
+        } else {
+          document.getElementById("highlight-0").style.color = "black";
+          document.getElementById("highlight-0").style.fontWeight = "normal";
+        }
+      });
+    </script>
+  </body>
 </html>
