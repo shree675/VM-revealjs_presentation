@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>reveal.js</title>
+    <title>Virtual Machines</title>
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
@@ -19,63 +19,8 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- <div
-          id="float1"
-          data-id="1"
-          style="
-            display: none;
-            background: cyan;
-            position: absolute;
-            opacity: 0.2;
-            width: 400px;
-            height: 400px;
-            margin: -200px 0 0 -200px;
-            border-radius: 400px;
-          "
-        ></div>
-        <div
-          id="float2"
-          data-id="2"
-          style="
-            display: none;
-            background: magenta;
-            position: absolute;
-            opacity: 0.2;
-            width: 300px;
-            height: 300px;
-            margin: -150px 0 0 -150px;
-            border-radius: 400px;
-          "
-        ></div>
-        <div
-          id="float3"
-          data-id="3"
-          style="
-            display: none;
-            background: yellow;
-            position: absolute;
-            opacity: 0.2;
-            width: 200px;
-            height: 200px;
-            margin: -100px 0 0 -100px;
-            border-radius: 400px;
-          "
-        ></div>
-        <div
-          id="float4"
-          data-id="4"
-          style="
-            display: none;
-            background: red;
-            position: absolute;
-            opacity: 0.2;
-            width: 100px;
-            height: 100px;
-            margin: -50px 0 0 -50px;
-            border-radius: 400px;
-          "
-        ></div> -->
         <section
+          id="first-slide"
           data-transition="zoom"
           data-background-gradient="radial-gradient(#283b95, #17b2c3)"
         >
@@ -1006,7 +951,8 @@
     <script src="plugin/math/math.js"></script>
     <script>
       const background = (top, left) => `
-      <div
+      <div>
+        <div
           id="float1"
           data-id="1"
           style="
@@ -1070,8 +1016,22 @@
             border-radius: 400px;
           "
         ></div>
+        </div>
       `;
-      var lastSlideNumber = 0;
+
+      const slides = document.getElementsByTagName("section");
+      for (let i = 0; i < slides.length; i++) {
+        if (i !== 0 && i !== slides.length - 1) {
+          let top = [];
+          let left = [];
+          for (let i = 1; i <= 4; i++) {
+            top.push(`${Math.floor(Math.random() * 40)}%`);
+            left.push(`${Math.floor(Math.random() * 25) - 25}%`);
+          }
+          slides[i].innerHTML += background(top, left);
+          slides[i].style.marginBottom = "0";
+        }
+      }
 
       Reveal.initialize({
         hash: true,
@@ -1087,18 +1047,6 @@
         ],
       });
 
-      Reveal.on("slidechanged", (e) => {
-        if (e.indexh !== 22 && e.indexh !== 0 && e.indexh > lastSlideNumber) {
-          lastSlideNumber = e.indexh;
-          let top = [];
-          let left = [];
-          for (let i = 1; i <= 4; i++) {
-            top.push(`${Math.floor(Math.random() * 80) + 25}%`);
-            left.push(`${Math.floor(Math.random() * 25) - 25}%`);
-          }
-          e.currentSlide.innerHTML += background(top, left);
-        }
-      });
       Reveal.on("fragmentshown", (event) => {
         if (
           event.fragment.getAttribute("data-fragment-index") === "4" &&
