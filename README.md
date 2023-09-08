@@ -1,10 +1,8 @@
 # VM Presentation
 
-For CSD Project
-
 ## About
 
-A presentation covering the basics of language virtual machines and their fundamental idea.
+A presentation covering the basics of language virtual machines and their fundamental idea. This is a part of CSD project.
 
 ## Instructions to Run
 
